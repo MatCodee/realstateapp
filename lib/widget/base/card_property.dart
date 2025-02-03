@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:realstateapp/models/property_model.dart';
 import 'package:realstateapp/widget/small_text.dart';
 
 class CardProperty extends StatelessWidget {
-  const CardProperty({super.key});
+  Property property;
+  CardProperty({required this.property,super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,25 +20,25 @@ class CardProperty extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
-            child: const Image(
+            child: Image(
+                width: MediaQuery.of(context).size.width,
                 height: 230,
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                    'https://img.freepik.com/foto-gratis/casa-azul-techo-azul-fondo-cielo_1340-25953.jpg')),
+                image: NetworkImage(property.image)),
           ),
           const SizedBox(
             height: 8,
           ),
           SmallText(
-              text: 'Willow Way', color: Colors.black, fw: FontWeight.bold),
-          SmallText(text: 'Down Town Haifax'),
+              text: property.title, color: Colors.black, fw: FontWeight.bold),
+          SmallText(text: property.description),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
                   SmallText(
-                    text: '\$900',
+                    text: '\$${property.price}',
                     color: Colors.blue[800]!,
                   ),
                   SmallText(text: '/month')

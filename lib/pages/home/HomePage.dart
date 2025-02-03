@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:realstateapp/models/property_model.dart';
 import 'package:realstateapp/widget/card_property.dart';
 import 'package:realstateapp/widget/small_text.dart';
 import 'package:realstateapp/widget/big_text.dart';
@@ -14,9 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<int> card = [1,2,3,4,5];
 
-  List<String> categories = ['All', 'Aparment', 'Town House', 'Villa','House'];
+  List<String> categories = ['All', 'Departamento', 'Casa', 'Casa rural','Casa en la playa'];
 
   TextEditingController _controllerSearch = TextEditingController();
 
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         BigText(text: 'Hey, Matish'),
-                        SmallText(text: 'Lets find tour house',color: Colors.black),
+                        SmallText(text: 'busquemos tu casa!',color: Colors.black),
                       ],
                     ),
                     const CircleAvatar(
@@ -52,11 +52,11 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 20),
                 TextSearchField(
                     controller: _controllerSearch,
-                    textField: 'Search',
+                    textField: 'Buscar',
                     icon: Icons.search,
                     iconColor: Colors.black38),
                 const SizedBox(height: 20,),
-                BigText(text: 'Category',color: Colors.black,),
+                BigText(text: 'Categorias',color: Colors.black,),
                 const SizedBox(height: 20,),
                 Container(
                   height: 40,
@@ -79,23 +79,23 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    BigText(text: 'Popular',color: Color.fromARGB(255, 71, 71, 71),),
+                    BigText(text: 'Popular',color: const Color.fromARGB(255, 71, 71, 71),),
                     SmallText(text: 'See all',color: Colors.blue[800]!,)
                   ],
                 ),
                 const SizedBox(height: 10,),
                 Container(
                   height: 310,
-                  child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: card.length,itemBuilder: (context, index) {
-                    return const CardProperty();
+                  child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: propertires.length,itemBuilder: (context, index) {
+                    return CardProperty(property: propertires[index]);
                   },),
                 ),
-                SizedBox(height: 30,),
-                BigText(text: "Best for You",color: Colors.black,),
+                const SizedBox(height: 30,),
+                BigText(text: "Lo mejor para ti",color: Colors.black,),
                 Container(
                   height: 310,
-                  child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: card.length,itemBuilder: (context, index) {
-                    return const CardProperty();
+                  child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: recommended.length,itemBuilder: (context, index) {
+                    return CardProperty(property: recommended[index]);
                   },),
                 ),
               ],

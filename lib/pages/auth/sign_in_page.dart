@@ -1,9 +1,6 @@
-
-
-
 import 'package:flutter/material.dart';
-import 'package:realstateapp/widget/big_text.dart';
-import 'package:realstateapp/widget/small_text.dart';
+import 'package:realstateapp/widget/base/big_text.dart';
+import 'package:realstateapp/widget/base/small_text.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -25,7 +22,7 @@ class SignInPage extends StatelessWidget {
                 child: Image(
                   height: MediaQuery.of(context).size.height,
                   fit: BoxFit.cover,
-                  image: NetworkImage('https://cdn.pixabay.com/photo/2018/11/09/10/10/interior-3804154_1280.jpg')
+                  image: const NetworkImage('https://cdn.pixabay.com/photo/2018/11/09/10/10/interior-3804154_1280.jpg')
                 ),
               ),
             ),
@@ -34,13 +31,13 @@ class SignInPage extends StatelessWidget {
               right: 0,
               left: 0,
               child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 30),
+                margin: const EdgeInsets.symmetric(horizontal: 30),
                 width: MediaQuery.of(context).size.width,
                 color: Colors.transparent,
                 child: Column(
                   children: [
-                    BigText(text: 'Hommie',size: 40,fw: FontWeight.bold,color: const Color.fromARGB(255, 255, 255, 255),),
-                    SmallText(text: 'The best place to find your house',color: Color.fromARGB(255, 255, 255, 255),size: 20,)
+                    BigText(text: 'HoDay',size: 40,fw: FontWeight.bold,color: const Color.fromARGB(255, 255, 255, 255),),
+                    SmallText(text: 'El mejor lugar para ti',color: Color.fromARGB(255, 255, 255, 255),size: 20,)
                   ],
                 ),
               ),
@@ -71,7 +68,7 @@ class SignInPage extends StatelessWidget {
                         children: [
                           const Icon(Icons.phone,color: Colors.white,),
                           const SizedBox(width: 10,),
-                          BigText(text: 'Continue with Mobile Number',size: 15,color: Colors.white,)
+                          BigText(text: 'Continuar con numero de telefono',size: 15,color: Colors.white,)
                         ],
                       )
                     ),
@@ -88,7 +85,7 @@ class SignInPage extends StatelessWidget {
                         children: [
                           const Image(width: 20,image: AssetImage('assets/images/google.png')),
                           const SizedBox(width: 10,),
-                          SmallText(text: 'Continue with Google',size: 15,color: Colors.black,)
+                          SmallText(text: 'Continue con Google',size: 15,color: Colors.black,)
                         ],
                       ),
                     ),
@@ -105,7 +102,7 @@ class SignInPage extends StatelessWidget {
                         children: [
                           const Image(width: 20,image: AssetImage('assets/images/facebook.png')),
                           const SizedBox(width: 10,),
-                          SmallText(text: 'Continue with Facebook',size: 15,color: Colors.black,)
+                          SmallText(text: 'Continue con Facebook',size: 15,color: Colors.black,)
                         ],
                       ),
                     ),
@@ -113,8 +110,8 @@ class SignInPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SmallText(text: "Don't have an account? ",size: 15,),
-                        SmallText(text: 'SignUp',color: Colors.blue,size: 15,)
+                        SmallText(text: "No tienes una cuenta? ",size: 15,),
+                        SmallText(text: 'Registrar',color: Colors.blue,size: 15,)
                       ],
                     )
                   ],
